@@ -1,7 +1,7 @@
 {
   "name": "cyber_ninja_community",
   "version": "0.1.0",
-  "homepage": "https://WhiteBunny94/cyber_ninja_community_01",
+  "homepage": "https://kaykay.github.io/cyber_ninja_community_01",
   "private": true,
   "dependencies": {
     "@auth-kit/react-router": "^4.0.2-alpha.11",
