@@ -1,0 +1,1 @@
+appBaseUrl = "/cyber_ninja_community_01/"; //'http://localhost:3005/'

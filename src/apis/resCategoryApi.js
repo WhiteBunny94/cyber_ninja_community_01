@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { appBaseUrl } from '../Global';
 
 const resCategoryApi = createApi({
     reducerPath: 'resource_categories',
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://localhost:3005/',
+        baseUrl: `${appBaseUrl}`,
     }),
     endpoints(builder) {
         return {
