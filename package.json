@@ -1,6 +1,7 @@
 {
   "name": "cyber_ninja_community",
   "version": "0.1.0",
+  "homepage": "https://github.com/WhiteBunny94/cyber_ninja_community_01",
   "private": true,
   "dependencies": {
     "@auth-kit/react-router": "^4.0.2-alpha.11",
@@ -27,7 +28,9 @@
     "start:server": "json-server --watch db.json ./node_modules/json-server-auth --port 3005",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
   }
 }
