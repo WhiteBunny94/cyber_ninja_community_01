@@ -17,10 +17,13 @@ export default function Profile() {
 
   const [uploads, setUploads] = useState([]);
 
-  // Load uploads from IndexedDB (mock if none)
+  // Load user data from localStorage when component mounts
   useEffect(() => {
-    setProfile(JSON.parse(localStorage.getItem("userData")) || profile);
-  }, [profile]);
+    const userData = JSON.parse(localStorage.getItem("userData"));
+    if (userData) {
+      setProfile(userData);
+    }
+  }, []); // Empty dependency array - only runs once when component mounts
 
   const handleEdit = () => setEditing(true);
   const handleCancel = () => setEditing(false);
@@ -35,7 +38,7 @@ export default function Profile() {
       majorName: majorData.find(m => m.id === e.target.value)?.name || "" 
     });
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     let updatedProfile = {
       id: profile.id,
@@ -43,14 +46,16 @@ export default function Profile() {
       email: profile.email,
       dob: profile.dob,
       majorId: profile.majorId,
-    }
-    editUser(updatedProfile);
-    if(editResult.isSuccess) {
+    };
+    
+    try {
+      await editUser(updatedProfile).unwrap();
       localStorage.setItem("userData", JSON.stringify(profile));
-    } else if(editResult.isError) {
-      alert("Error updating profile: " + editResult.error.message);
+      setEditing(false);
+      alert("Profile updated successfully!");
+    } catch (error) {
+      alert("Error updating profile: " + error.message);
     }
-    setEditing(false);
   };
 
   return (
@@ -62,11 +67,11 @@ export default function Profile() {
       </header>
 
       <nav>
-        <a href="/">Home</a>
-        <a href="/resources">Resources</a>
-        <a href="/quests">Quests</a>
-        <a href="/leaderboard">Leaderboard</a>
-        <a href="/profile" className="active">
+        <a href="#/">Home</a>
+        <a href="#/resources">Resources</a>
+        <a href="#/quests">Quests</a>
+        <a href="#/leaderboard">Leaderboard</a>
+        <a href="#/profile" className="active">
           Profile
         </a>
         <button

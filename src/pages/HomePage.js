@@ -145,18 +145,18 @@ const HomePage = () => {
         <h1>Cyber Ninjas Community</h1>
       </header>
       <nav>
-        <a href="/" className="active">
+        <a href="#/" className="active">
           Home
         </a>
-        <a href="/resources">Resources</a>
-        <a href="/quests">Quests</a>
-        <a href="/leaderboard">Leaderboard</a>
-        <a href="/profile">Profile</a>
+        <a href="#/resources">Resources</a>
+        <a href="#/quests">Quests</a>
+        <a href="#/leaderboard">Leaderboard</a>
+        <a href="#/profile">Profile</a>
         <button
           className="logout-btn"
           onClick={() => {
             localStorage.removeItem("userData");
-            window.location.href = "/login";
+            window.location.href = "#/login";
           }}
           aria-label="Logout"
         >

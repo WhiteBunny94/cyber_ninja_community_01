@@ -183,11 +183,11 @@ export default function AdminResources() {
                     </h1>
                 </header>
                 <nav>
-                    <a href="/dashboard">
+                    <a href="#/dashboard">
                     Dashboard
                     </a>
-                    <a href="/admin/resources" className="active">Resources</a>
-                    <a href="/admin/account">Account</a>
+                    <a href="#/admin/resources" className="active">Resources</a>
+                    <a href="#/admin/account">Account</a>
                     <button
                     className="logout-btn"
                     onClick={() => {

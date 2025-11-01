@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { useAddDownloadRecordMutation, useAddReadRecordMutation, useAddResourcesMutation, useFetchCategoryQuery, useFetchResourcesQuery } from "../store";
 
 const Resources = () => {
   const {data: categories} = useFetchCategoryQuery();
   const {data: resourceData} = useFetchResourcesQuery();
+  const navigate = useNavigate();
   const [addResource, addResult] = useAddResourcesMutation();
   const [addReadRecord] = useAddReadRecordMutation();
   const [addDownloadRecord, downloadResult] = useAddDownloadRecordMutation();
@@ -111,11 +113,11 @@ const Resources = () => {
         timestamp: new Date().toISOString(),
       };
 
-      // 🟩 Save the read record to db.json
-      await addReadRecord(record).unwrap();
+  // 🟩 Save the read record to db.json
+  await addReadRecord(record).unwrap();
 
-      // 🟩 Redirect user to a new page to view the resource
-      window.location.href = `/read/${res.id}`;
+  // 🟩 Navigate to the read page using router (works with HashRouter)
+  navigate(`/read/${res.id}`);
     } catch (err) {
       console.error("Read record error:", err);
       alert("⚠️ Failed to save read record.");
@@ -165,11 +167,11 @@ const Resources = () => {
         <h1>Resources</h1>
       </header>
       <nav>
-        <a href="/">Home</a>
-        <a href="/resources" className="active">Resources</a>
-        <a href="/quests">Quests</a>
-        <a href="/leaderboard">Leaderboard</a>
-        <a href="/profile">Profile</a>
+        <a href="#/">Home</a>
+        <a href="#/resources" className="active">Resources</a>
+        <a href="#/quests">Quests</a>
+        <a href="#/leaderboard">Leaderboard</a>
+        <a href="#/profile">Profile</a>
         <button
           className="logout-btn"
           onClick={() => {

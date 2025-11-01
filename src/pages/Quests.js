@@ -265,13 +265,13 @@ const Quests = () => {
       </header>
 
       <nav>
-        <a href="/">Home</a>
-        <a href="/resources">Resources</a>
-        <a href="/quests" className="active">
+        <a href="#/">Home</a>
+        <a href="#/resources">Resources</a>
+        <a href="#/quests" className="active">
           Quests
         </a>
-        <a href="/leaderboard">Leaderboard</a>
-        <a href="/profile">Profile</a>
+        <a href="#/leaderboard">Leaderboard</a>
+        <a href="#/profile">Profile</a>
         <button
           className="logout-btn"
           onClick={() => {

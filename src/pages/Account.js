@@ -151,9 +151,9 @@ export default function Account() {
       </header>
 
       <nav>
-        <a href="/dashboard">Dashboard</a>
-        <a href="/admin/resources">Resources</a>
-        <a href="/account" className="active">Account</a>
+        <a href="#/dashboard">Dashboard</a>
+        <a href="#/admin/resources">Resources</a>
+        <a href="#/account" className="active">Account</a>
         <button
           className="logout-btn"
           onClick={() => {

@@ -31,9 +31,8 @@ export default function Login() {
           userId: loginUser[0].id,
           timestamp: new Date().toISOString(),
         });
-        alert("Login successful!");
-        if (loginUser[0].role === "admin") {
-          window.location.href = "/dashboard";
+        if ((loginUser[0].role || "").toLowerCase() === "admin") {
+          window.location.href = "#/dashboard";
         } else {
           window.location.href = "/";
         }

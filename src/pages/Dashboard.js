@@ -218,11 +218,11 @@ export default function Dashboard() {
         </h1>
       </header>
       <nav>
-        <a href="/dashboard" className="active">
+        <a href="#/dashboard" className="active">
           Dashboard
         </a>
-        <a href="/admin/resources">Resources</a>
-        <a href="/admin/account">Account</a>
+        <a href="#/admin/resources">Resources</a>
+        <a href="#/admin/account">Account</a>
         <button
           className="logout-btn"
           onClick={() => {
